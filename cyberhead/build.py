@@ -1,6 +1,6 @@
 import yaml
 from shutil import rmtree, copytree
-from os import mkdir, path
+from os import path
 from subprocess import Popen
 
 
@@ -11,18 +11,17 @@ def read_compose(file):
 
 
 def transfer_modules(modules):
-    if path.exists('./modules'):
-        rmtree('./modules')
-    mkdir('./modules')
     for module in modules:
-        copytree('/home/sebu/exp/' + module, './modules/' + module)
-        print('COPIED: ./' + module, './modules/' + module)
+        if path.exists('./' + module):
+            rmtree('./' + module)
+        copytree(modules[module]['dir'], './' + module)
+        print('COPIED: ./' + module, './' + module)
 
 
-def build():
-    Popen("/home/sebu/exp/setup.py", shell=False)
+def build(file):
+    structure = read_compose(file)
+    transfer_modules(structure['modules'])
+    #Popen("/home/sebu/exp/setup.py", shell=False)
 
 
-file = r'/home/sebu/exp/cyberhead-compose.yml'
-structure = read_compose(file)
-transfer_modules(structure['modules'])
+build(r'/home/sebu/exp/cyberhead-compose.yml')
