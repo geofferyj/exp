@@ -1,6 +1,6 @@
 import yaml
 from shutil import rmtree, copytree
-from os import path
+from os import path, system
 from subprocess import Popen
 
 
@@ -21,7 +21,8 @@ def transfer_modules(modules):
 def build(file):
     structure = read_compose(file)
     transfer_modules(structure['modules'])
-    Popen("/home/sebu/exp/setup.py", shell=False)
+    system('sudo python3 /home/sebu/exp/setup.py install')
+    #Popen("/home/sebu/exp/setup.py", shell=False)
 
 
 build(r'/home/sebu/exp/cyberhead-compose.yml')
