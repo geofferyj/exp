@@ -1,0 +1,13 @@
+version: 1
+
+
+modules:
+  strategies:
+    dir: './strategies'
+    strattest:
+      dir: './strattest'  
+
+  brokers:
+    dir: './brokers'
+    alpaca:
+      dir: './alpaca'
