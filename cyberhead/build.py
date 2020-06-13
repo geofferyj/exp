@@ -21,7 +21,7 @@ def transfer_modules(modules):
 def build(file):
     structure = read_compose(file)
     transfer_modules(structure['modules'])
-    #Popen("/home/sebu/exp/setup.py", shell=False)
+    Popen("/home/sebu/exp/setup.py", shell=False)
 
 
 build(r'/home/sebu/exp/cyberhead-compose.yml')

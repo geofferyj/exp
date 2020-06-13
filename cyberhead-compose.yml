@@ -1,12 +1,13 @@
 version: 1
-gui: './web-gui'
+
+gui: 
+  dir: './web-gui'
 
 modules:
   strategies:
-    dir: '/home/sebu/exp/strattest'  
+    dir: '/home/sebu/exp/strategies'  
     strattest:
       dir: './strattest'  
-
   brokers:
     dir: '/home/sebu/exp/brokers'
     alpaca:

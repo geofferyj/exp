@@ -8,6 +8,8 @@
 !Dockerfile
 !setup.py
 
+!cyberhead/build.py
+
 # ...even if they are in subdirectories
 !*/
 
