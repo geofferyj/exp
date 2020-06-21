@@ -20,7 +20,3 @@ RUN apt-get install -y 	make \
 			vim
 
 RUN npm install -g yarn
-
-RUN apt-get install pipx
-RUN pipx ensurepath
-#RUN python3 setup.py install 
