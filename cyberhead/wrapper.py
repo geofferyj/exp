@@ -12,11 +12,17 @@ def enter():
     system('docker-compose exec cyberhead bash')
 
 
+def build():
+    '''erase modules and build'''
+    update()
+    system('docker-compose exec cyberhead python3 '
+        '/app/cyberhead/core/builder.py')
+
+
 def dev():
     '''start in developer mode'''
-    update()
- #   build(r'/app/cyberhead-compose.yml')
-    system('docker-compose exec cyberhead pip3 install .')
+    system('docker-compose exec cyberhead '
+            'celery -A tasker beat --loglevel=info --workdir /app/cyberhead/core')
 
 
 def deploy():
@@ -33,6 +39,9 @@ def cli():
 
     if cmd == 'update':
         update()
+
+    if cmd == 'build':
+        build()
 
     elif cmd == 'enter':
         enter()
