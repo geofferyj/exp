@@ -1,5 +1,6 @@
 from sys import argv
-from os import system#from cyberhead.core.builder import build
+from os import system
+# from cyberhead.core.builder import build
 
 
 def update():
@@ -10,6 +11,11 @@ def update():
 def enter():
     '''open a terminal into the container'''
     system('docker-compose exec cyberhead bash')
+
+
+def status():
+    system('docker-compose exec cyberhead celery -A tasker worker '
+           '--workdir /app/cyberhead/core')
 
 
 def build():
@@ -40,8 +46,11 @@ def cli():
     if cmd == 'update':
         update()
 
-    if cmd == 'build':
+    elif cmd == 'build':
         build()
+
+    elif cmd == 'status':
+        status()
 
     elif cmd == 'enter':
         enter()

@@ -9,5 +9,3 @@ modules:
     dir: '/app/brokers'
     alpaca:
       dir: '/app/alpaca'
-  web-gui: 
-    dir: '/app/web-gui'
