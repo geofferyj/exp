@@ -14,7 +14,7 @@ def enter():
 
 
 def status():
-    system('docker-compose exec cyberhead celery -A tasker worker'
+    system('docker-compose exec cyberhead celery -A tasker worker '
            '--workdir /app/cyberhead/core')
 
 
@@ -27,8 +27,9 @@ def build():
 
 def dev():
     '''start in developer mode'''
+    build()
     system('docker-compose exec cyberhead '
-            'celery -A tasker beat --loglevel=info --workdir /app/cyberhead/core')
+           'python3 /app/cyberhead/core/tasker.py')
 
 
 def deploy():
@@ -46,10 +47,10 @@ def cli():
     if cmd == 'update':
         update()
 
-    if cmd == 'build':
+    elif cmd == 'build':
         build()
 
-    if cmd == 'status':
+    elif cmd == 'status':
         status()
 
     elif cmd == 'enter':

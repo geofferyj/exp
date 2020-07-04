@@ -27,8 +27,9 @@ def build():
 
 def dev():
     '''start in developer mode'''
+    build()
     system('docker-compose exec cyberhead '
-            'celery -A tasker beat --loglevel=info --workdir /app/cyberhead/core')
+           'python3 /app/cyberhead/core/tasker.py')
 
 
 def deploy():

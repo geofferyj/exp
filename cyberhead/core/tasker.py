@@ -1,23 +1,19 @@
-from celery import Celery
-from os import system
+from threading import Timer
+from termcolor import colored
+
+from builder import read_compose
 
 
-app = Celery('tasker',
-            broker="pyamqp://guest@cyberhead-rmq//")
+RUNNING = colored('RUNNING', 'green')
+FAILED = colored('FAILED', 'red')
 
 
-@app.task
-def see_you():
-    print('Sending task')
-    system('python3 /app/cyberhead/strategies/stratmanager.py')
-    print('Task send')
+def call_modules():
+    modules = read_compose('/app/cyberhead-compose.yml')
+    for module in modules['modules']:
+        print(module)
+        exec('from cyberhead.{} import start'.format(module), globals())
+        module_answer, callback_timing = start()
+        Timer(callback_timing, call_modules, []).start()
 
-
-app.conf.beat_schedule = {
-    "see-you": {
-        "task": "tasker.see_you",
-        "schedule": 0
-    }
-}
-
-
+call_modules()
