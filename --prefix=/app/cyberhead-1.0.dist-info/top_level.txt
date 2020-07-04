@@ -1,3 +1,0 @@
-brokers
-cyberhead
-strategies
