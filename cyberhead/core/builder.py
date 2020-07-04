@@ -14,7 +14,7 @@ def transfer_modules(modules):
         if path.exists('/app/cyberhead/' + module):
             rmtree('/app/cyberhead/' + module)
         copytree(modules[module]['dir'], '/app/cyberhead/' + module)
-        print('COPIED: /app/cyberhead/' + module, '/app/cyberhead/' + module)
+        print('COPIED: /app/' + module, '/app/cyberhead/' + module)
 
 
 def build(file):
