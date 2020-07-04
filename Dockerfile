@@ -20,6 +20,6 @@ RUN apt-get install -y 	make \
 			git \
 			vim
 RUN pip3 install pyyaml\
-		 termcolor
+				 termcolor
 
 RUN npm install -g yarn
