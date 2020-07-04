@@ -11,12 +11,15 @@ RUN apt-get install -y 	python3 \
 			python3-pip \
 			npm \
 			telnet \
-			curl
+			curl\
+			pipx
 
 RUN apt-get install -y 	make \
 			g++ \
 			libssl-dev \
 			git \
 			vim
+RUN pip3 install pyyaml\
+		 termcolor
 
 RUN npm install -g yarn
