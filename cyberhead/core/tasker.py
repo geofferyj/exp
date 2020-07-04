@@ -10,6 +10,7 @@ FAILED = colored('FAILED', 'red')
 
 modules = read_compose('/app/cyberhead-compose.yml')['modules']
 callback_timing = 5
+
 def import_modules():
     for module in modules:
         exec('from cyberhead import {}'.format(module), globals())

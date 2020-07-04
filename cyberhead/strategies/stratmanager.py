@@ -1,4 +1,4 @@
-from cyberhead.strategies.strategies.strattest import strattest
+from cyberhead.strategies.strattest import strattest
 from backtesting import Backtest, Strategy
 from backtesting.test import SMA, GOOG
 

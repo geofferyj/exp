@@ -20,7 +20,7 @@ def transfer_modules(modules):
 def build(file):
     structure = read_compose(file)
     transfer_modules(structure['modules'])
-    system('pip3 install --target="root/app/" . --upgrade')
-#    system('pip3 install -r /app/cyberhead/requirements.txt')
+    # system('pip3 install --target="root/app/" . --upgrade')
+    # system('pip3 install -r /app/cyberhead/requirements.txt')
 
 build('/app/cyberhead-compose.yml')

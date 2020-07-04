@@ -4,8 +4,8 @@ modules:
   strategies:
     dir: '/app/strategies'  
     strattest:
-      dir: '/app/strattest'  
+      dir: '/app/strategies/strattest'  
   brokers:
     dir: '/app/brokers'
     alpaca:
-      dir: '/app/alpaca'
+      dir: '/app/brokers/alpaca'
