@@ -9,7 +9,7 @@ ADD ./cyberhead /app
 RUN apk update
 RUN apk add -y	pipx
 
-RUN apk add -y 	make \
+RUN apk add make \
 			g++ \
 			libssl-dev \
 			git \
