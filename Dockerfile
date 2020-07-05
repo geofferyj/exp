@@ -18,5 +18,6 @@ RUN pip install pyyaml\
 				 termcolor\
 				 pandas\
 				 .
+RUN python3 -m pip install --user pipx && python3 -m pipx ensurepath
 
 # RUN npm install -g yarn
