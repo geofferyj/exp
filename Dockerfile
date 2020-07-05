@@ -1,22 +1,27 @@
-FROM python:alpine
+FROM ubuntu:latest
 
 
-# ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 ADD ./cyberhead /app
 
-RUN apk update
+RUN apt-get update
+RUN apt-get install -y 	python3 \
+			python3-pip \
+			npm \
+			telnet \
+			curl\
+			pipx
 
-RUN apk add make \
+RUN apt-get install -y 	make \
 			g++ \
-			libressl-dev \
+			libssl-dev \
 			git \
 			vim
-RUN pip install pyyaml\
+RUN pip3 install pyyaml\
 				 termcolor\
-				 pandas
-				 
-RUN python3 -m pip install --user pipx && python3 -m pipx ensurepath
+				 pandas\
+				 .
 
-# RUN npm install -g yarn
+RUN npm install -g yarn
