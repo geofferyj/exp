@@ -21,6 +21,6 @@ RUN apt-get install -y 	make \
 			vim
 RUN pip3 install pyyaml\
 				 termcolor\
-				 pandas\
+				 pandas
 
 RUN npm install -g yarn
