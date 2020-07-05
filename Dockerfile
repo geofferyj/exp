@@ -19,8 +19,6 @@ RUN apt-get install -y 	make \
 			libssl-dev \
 			git \
 			vim
-RUN pip3 install pyyaml\
-				 termcolor\
-				 pandas
+RUN pip3 install pyyaml termcolor pandas
 
 RUN npm install -g yarn
