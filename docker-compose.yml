@@ -3,7 +3,7 @@ version: '3'
 services:
   cyberhead-mysql:
     container_name: cyberhead-mysql
-    image: mysql-alpine
+    image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: cyberhead
