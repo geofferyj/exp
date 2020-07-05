@@ -10,7 +10,7 @@ RUN apk update
 
 RUN apk add make \
 			g++ \
-			libssl-dev \
+			libressl-dev \
 			git \
 			vim
 RUN pip install pyyaml\
