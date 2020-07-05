@@ -7,7 +7,6 @@ WORKDIR /app
 ADD ./cyberhead /app
 
 RUN apk update
-RUN apk add	pipx
 
 RUN apk add make \
 			g++ \
